@@ -1,2 +1,2 @@
 # weapp-SimpleMemo
-This is a repository t0 record my progress to develop  SimpleMemo .
+This is a repository to record my progress to develop  SimpleMemo .
