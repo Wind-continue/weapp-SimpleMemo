@@ -1,0 +1,10 @@
+<view class="detail-container">
+  <!-- 时间显示 -->
+  <view class="detail-time">{{memo.createTime}}</view>
+  
+  <!-- 内容显示区域 -->
+  <view class="detail-content">
+    {{memo.content}}
+  </view>
+</view>
+    

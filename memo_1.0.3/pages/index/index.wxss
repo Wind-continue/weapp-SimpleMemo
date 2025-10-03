@@ -1,0 +1,131 @@
+/* 容器整体样式 */
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 新增按钮样式 - 保持原有优化后样式 */
+.toggle-btn {
+  width: 100rpx !important;  
+  height: 100rpx !important; 
+  border-radius: 50%;
+  background: #07c160;
+  color: white;
+  font-size: 60rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx; 
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  padding: 0 !important;    
+  margin: 0 !important;     
+  border: none !important;  
+  z-index: 10;             
+}
+
+/* 输入区域样式：新增按钮容器横向布局 */
+.input-area {
+  margin-bottom: 30rpx;
+}
+/* 按钮容器：横向排列，左右分布 */
+.btn-group {
+  display: flex;
+  gap: 20rpx; /* 两个按钮之间的间距 */
+}
+/* 取消按钮：红色样式，占比50% */
+.cancel-btn {
+  flex: 1; /* 与添加按钮平分宽度 */
+  background: #ff4d4f; /* 红色主题 */
+  color: white;
+  font-size: 28rpx;
+}
+/* 输入框样式：保持不变 */
+.input {
+  width: 100%;
+  min-height: 150rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+/* 添加按钮：保持不变，占比50% */
+.add-btn {
+  flex: 1; /* 与取消按钮平分宽度 */
+  background: #07c160;
+  color: white;
+  font-size: 28rpx;
+}
+
+/* 备忘录列表样式：保持不变 */
+.memo-list {
+  margin-bottom: 120rpx; /* 避开底部新增按钮 */
+}
+.empty {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 100rpx 0;
+}
+
+/* 单个备忘录条目样式：添加点击反馈 */
+.memo-item {
+  position: relative;
+  padding: 15rpx 15rpx;
+  border-bottom: 1px solid #f5f5f5;
+  margin-bottom: 15rpx;
+  background: white;
+  border-radius: 15rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  /* 添加点击效果 */
+  transition: all 0.2s;
+}
+.memo-item:active {
+  background-color: #f5f5f5;
+}
+
+/* 备忘录内容样式：限制显示两行并添加省略号 */
+.memo-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 45rpx;
+  margin-right: 20rpx; 
+  margin-bottom: 15rpx; 
+  /* 核心样式：限制显示两行 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.memo-time {
+  font-size: 22rpx;
+  color: #999;
+  text-align: left;
+}
+
+/* 删除按钮样式：保持不变 */
+.delete-btn {
+  position: absolute;
+  top: 0rpx;
+  right: 10rpx;
+  width: 30rpx !important;  
+  height: 30rpx !important; 
+  padding: 0;
+  margin: 0;
+  font-size: 30rpx;
+  color: #ccc; 
+  background: transparent; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn_active {
+  color: #ff4d4f; 
+}
+    

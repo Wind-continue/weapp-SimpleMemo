@@ -1,0 +1,29 @@
+.detail-container {
+  padding: 20rpx;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+
+
+
+
+/* 时间显示样式 */
+.detail-time {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+}
+
+/* 内容显示样式 */
+.detail-content {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 50rpx;
+  min-height: calc(100vh - 200rpx);
+  white-space: pre-wrap; /* 保留换行和空格 */
+}
+    

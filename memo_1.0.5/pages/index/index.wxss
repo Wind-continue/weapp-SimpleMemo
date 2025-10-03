@@ -1,0 +1,246 @@
+/* index.wxss */
+
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 新增按钮样式 */
+.toggle-btn {
+  width: 100rpx !important;  
+  height: 100rpx !important; 
+  border-radius: 50%;
+  background: #07c160;
+  color: white;
+  font-size: 60rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx; 
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.1);
+  padding: 0 !important;    
+  margin: 0 !important;     
+  border: none !important;  
+  z-index: 10;             
+}
+
+/* 输入区域样式 */
+.input-area {
+  margin-bottom: 30rpx;
+}
+.title-input {
+  width: 100%;
+  height: 60rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 15rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.content-input {
+  width: 100%;
+  min-height: 150rpx;
+  border: 1px solid #eee;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+/* 图片上传样式 */
+.upload-area {
+  margin-bottom: 20rpx;
+}
+.upload-tip {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 15rpx;
+}
+.upload-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+}
+.upload-img-item {
+  position: relative;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.upload-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.del-img-btn {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 30rpx !important;
+  height: 30rpx !important;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.upload-btn {
+  width: 100rpx;
+  height: 100rpx;
+  border: 1px dashed #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload-icon {
+  width: 36rpx;
+  height: 36rpx;
+  opacity: 0.5;
+}
+
+/* 按钮容器 */
+.btn-group {
+  display: flex;
+  gap: 20rpx;
+}
+.cancel-btn {
+  flex: 1;
+  background: #ff4d4f;
+  color: white;
+  font-size: 28rpx;
+}
+.add-btn {
+  flex: 1;
+  background: #07c160;
+  color: white;
+  font-size: 28rpx;
+}
+
+/* 备忘录列表样式 */
+.memo-list {
+  margin-bottom: 120rpx;
+}
+.empty {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 100rpx 0;
+}
+
+/* 备忘录条目样式 */
+.memo-item {
+  position: relative;
+  padding: 20rpx 15rpx;
+  border-bottom: 1px solid #c7c6c6;
+  margin-bottom: 15rpx;
+  background: white;
+  border-radius: 15rpx;
+  box-shadow: 0 6rpx 8rpx rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+.memo-item:active {
+  background-color: #f5f5f5;
+}
+
+/* 正文内容总容器 */
+.memo-main-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 40rpx; /* 给删除按钮留空间 */
+}
+
+/* 标题样式 */
+.memo-title {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  line-height: 45rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 分割线 */
+.index-divider{
+  height: 2px;
+  background-color: #eee;
+  margin-bottom: 10rpx;
+}
+
+/* 正文+图片容器 */
+.memo-text-img-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10rpx;
+  margin-bottom: 8rpx; /* 减小与时间戳的距离 */
+  min-height: 80rpx;
+}
+
+/* 正文内容 */
+.memo-content {
+  flex: 1;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 45rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  min-width: 0;
+}
+
+/* 预览图样式 */
+.memo-thumb {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  object-fit: cover;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* 核心调整：时间戳样式（正文下方、靠左、缩小字号） */
+.memo-time {
+  font-size: 20rpx; /* 略微缩小字号 */
+  color: #999;
+  text-align: left; /* 强制靠左 */
+  margin-left: 0; /* 确保无左侧间距 */
+  padding-left: 0; /* 确保无左侧内边距 */
+}
+
+/* 删除按钮样式 */
+.delete-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 10rpx;
+  width: 30rpx !important;  
+  height: 30rpx !important; 
+  padding: 0;
+  margin: 0;
+  font-size: 30rpx;
+  color: #ccc; 
+  background: transparent; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.delete-btn_active {
+  color: #ff4d4f; 
+}

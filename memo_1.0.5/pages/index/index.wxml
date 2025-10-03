@@ -1,0 +1,108 @@
+<!-- index.wxml -->
+
+<view class="container">
+  
+  <!-- 添加按钮 -->
+  <button 
+    bindtap="toggleInput" 
+    class="toggle-btn"
+    wx:if="{{!showInput}}"
+  >
+    +
+  </button>
+  
+  <!-- 输入区域 -->
+  <view class="input-area" wx:if="{{showInput}}">
+    <input 
+      placeholder="输入标题（必填）" 
+      bindinput="onTitleChange"
+      value="{{newTitle}}"
+      class="title-input"
+      maxlength="{{maxTitleLength}}"
+    ></input>
+    <textarea 
+      placeholder="输入内容（可选）" 
+      bindinput="onInputChange"
+      value="{{newContent}}"
+      class="content-input"
+      maxlength="{{maxInputLength}}"
+    ></textarea>
+    <view class="upload-area">
+      <text class="upload-tip">添加图片（可选）</text>
+      <view class="upload-container">
+        <block wx:for="{{selectedImages}}" wx:key="index">
+          <view class="upload-img-item">
+            <image src="{{item}}" mode="cover" class="upload-img"></image>
+            <button 
+              class="del-img-btn" 
+              bindtap="deleteImage" 
+              data-index="{{index}}"
+              catchtap
+            >×</button>
+          </view>
+        </block>
+        <view 
+          class="upload-btn" 
+          bindtap="chooseImage"
+          wx:if="{{selectedImages.length < 9}}"
+        >
+          <image src="/images/upload.png" mode="widthFix" class="upload-icon"></image>
+        </view>
+      </view>
+    </view>
+    <view class="btn-group">
+      <button bindtap="cancelInput" class="cancel-btn">取消</button>
+      <button bindtap="addMemo" class="add-btn">添加</button>
+    </view>
+  </view>
+
+  <!-- 备忘录列表-->
+  <view class="memo-list">
+    <view class="empty" wx:if="{{memos.length === 0}}">
+      暂无备忘录，添加一条吧~
+    </view>
+
+    <block wx:for="{{memos}}" wx:key="id">
+      <view class="memo-item" bindtap="goToDetail" data-id="{{item.id}}">
+        <!-- 删除按钮 -->
+        <button 
+          bindtap="deleteMemo" 
+          data-id="{{item.id}}"
+          class="delete-btn"
+          hover-class="delete-btn_active"
+          catchtap  
+        >
+          ×
+        </button>
+        
+        <!-- 正文内容总容器（包含标题、正文、图片、时间戳） -->
+        <view class="memo-main-content">
+          <!-- 标题 -->
+          <view class="memo-title">{{item.title}}</view>
+          <view class="index-divider"></view>
+          
+          <!-- 正文+图片容器 -->
+          <view class="memo-text-img-wrap">
+            <view class="memo-content">
+              {{item.processedContent}}
+            </view>
+            <!-- 预览图 -->
+            <block wx:if="{{item.images && item.images.length > 0}}">
+              <image 
+                src="{{item.images[0]}}" 
+                mode="cover" 
+                class="memo-thumb"
+                bindtap="previewThumb"
+                data-id="{{item.id}}"
+                catchtap
+              ></image>
+            </block>
+          </view>
+          
+          <!-- 时间戳移至正文内容区域内，正文下方且靠左 -->
+          <view class="memo-time">{{item.createTime}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

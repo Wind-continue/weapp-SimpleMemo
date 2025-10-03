@@ -1,0 +1,100 @@
+.container {
+  padding: 16rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 切换按钮样式 */
+.toggle-btn {
+  width:60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  background-color: #1677ff;
+  color: white;
+  font-size: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  padding: 0;
+  position: fixed;
+  bottom: 60rpx;
+  right: 20rpx;
+  box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, 0.2);
+  z-index: 10;
+
+}
+
+/* 输入区域样式 */
+.input-area {
+  display: flex;
+  padding: 20rpx;
+  gap: 16rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  background-color: white;
+}
+
+.input {
+  flex: 8;
+  height: 60rpx;
+  width: 80%;
+  padding: 10rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 20rpx;
+  background-color: white;
+  font-size: 24rpx;
+  resize: none;
+}
+
+.add-btn {
+  flex: 1;
+  width: 20%;
+  height: 80rpx;
+  background-color: #4285f4;
+  color: white;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 列表样式 */
+.memo-list {
+  padding: 20rpx;
+  padding-bottom: 140rpx; /* 留出底部按钮空间 */
+}
+
+.memo-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+  background-color: #fff;
+  border-radius: 50rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.memo-content {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.memo-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  font-size: 24rpx;
+  color: #ff4d4f;
+  background-color: transparent;
+  padding: 4rpx 8rpx;
+}
+
+.empty {
+  text-align: center;
+  padding: 40rpx 0;
+  color: #999;
+  font-size: 24rpx;
+}

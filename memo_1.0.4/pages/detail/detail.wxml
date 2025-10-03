@@ -1,0 +1,15 @@
+<!-- detail.wxml-->
+
+<view class="detail-container">
+  <!-- 标题显示 -->
+  <view class="detail-title">{{memo.title}}</view>
+  <!-- 时间显示 -->
+  <view class="detail-time">{{memo.createTime}}</view>
+  <!-- 分割线 -->
+  <view class="detail-divider"></view>
+  <!-- 内容显示区域：直接显示原始内容 -->
+  <view class="detail-content">
+    <!-- 内容为空时显示提示，否则显示原始内容 -->
+    {{memo.content ? memo.content : ''}}
+  </view>
+</view>

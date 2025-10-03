@@ -1,0 +1,46 @@
+<view class="container">
+  
+  <!-- 切换按钮 -->
+  <button 
+    bindtap="toggleInput" 
+    class="toggle-btn"
+    wx:if="{{!showInput}}"
+  >
+    +
+  </button>
+  
+  <!-- 输入区域 -->
+  <view class="input-area" wx:if="{{showInput}}">
+    <textarea 
+      placeholder="输入备忘内容..." 
+      bindinput="onInputChange"
+      value="{{newContent}}"
+      class="input"
+      auto-focus="true"
+    ></textarea>
+    <button bindtap="addMemo" class="add-btn">添加</button>
+  </view>
+
+  <!-- 备忘录列表 -->
+  <view class="memo-list">
+    <view class="empty" wx:if="{{memos.length === 0}}">
+      暂无备忘录，添加一条吧~
+    </view>
+
+    <block wx:for="{{memos}}" wx:key="id">
+      <view class="memo-item">
+        <view class="memo-content">{{item.content}}</view>
+        <view class="memo-info">
+          <button 
+            bindtap="deleteMemo" 
+            data-id="{{item.id}}"
+            class="delete-btn"
+          >
+            删除
+          </button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+    

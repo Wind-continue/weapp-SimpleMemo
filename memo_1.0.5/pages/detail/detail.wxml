@@ -1,0 +1,29 @@
+<!-- detail.wxml-->
+
+<view class="detail-container">
+  <!-- 标题显示 -->
+  <view class="detail-title">{{memo.title}}</view>
+  <!-- 时间显示 -->
+  <view class="detail-time">{{memo.createTime}}</view>
+  <!-- 分割线 -->
+  <view class="detail-divider"></view>
+  <!-- 内容显示区域：直接显示原始内容 -->
+  <view class="detail-content">
+    {{memo.content ? memo.content : '无文本内容'}}
+  </view>
+  <!-- 完整图片展示区域（支持预览） -->
+  <block wx:if="{{memo.images && memo.images.length > 0}}">
+    <view class="detail-img-title">图片（{{memo.images.length}}）</view>
+    <view class="detail-img-list">
+      <block wx:for="{{memo.images}}" wx:key="index">
+        <image 
+          src="{{item}}" 
+          mode="widthFix" 
+          class="detail-img"
+          bindtap="previewImage"
+          data-index="{{index}}"
+        ></image>
+      </block>
+    </view>
+  </block>
+</view>

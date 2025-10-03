@@ -1,0 +1,50 @@
+<view class="container">
+  
+  <!-- 添加按钮 -->
+  <button 
+    bindtap="toggleInput" 
+    class="toggle-btn"
+    wx:if="{{!showInput}}"
+  >
+    +
+  </button>
+  
+  <!-- 输入区域：新增取消按钮，与添加按钮横向排列 -->
+  <view class="input-area" wx:if="{{showInput}}">
+    <textarea 
+      placeholder="输入备忘内容..." 
+      bindinput="onInputChange"
+      value="{{newContent}}"
+      class="input"
+      auto-focus="true"
+    ></textarea>
+    <!-- 按钮容器：横向布局，放置取消和添加按钮 -->
+    <view class="btn-group">
+      <button bindtap="cancelInput" class="cancel-btn">取消</button>
+      <button bindtap="addMemo" class="add-btn">添加</button>
+    </view>
+  </view>
+
+  <!-- 备忘录列表 -->
+  <view class="memo-list">
+    <view class="empty" wx:if="{{memos.length === 0}}">
+      暂无备忘录，添加一条吧~
+    </view>
+
+    <!-- 备忘录条目：保留原有时间显示和删除按钮 -->
+    <block wx:for="{{memos}}" wx:key="id">
+      <view class="memo-item">
+        <button 
+          bindtap="deleteMemo" 
+          data-id="{{item.id}}"
+          class="delete-btn"
+          hover-class="delete-btn_active"  
+        >
+          ×
+        </button>
+        <view class="memo-content">{{item.content}}</view>
+        <view class="memo-time">{{item.createTime}}</view>
+      </view>
+    </block>
+  </view>
+</view>

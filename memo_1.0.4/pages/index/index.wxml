@@ -1,0 +1,62 @@
+<!-- index.wxml -->
+
+<view class="container">
+  
+  <!-- 添加按钮 -->
+  <button 
+    bindtap="toggleInput" 
+    class="toggle-btn"
+    wx:if="{{!showInput}}"
+  >
+    +
+  </button>
+  
+  <!-- 输入区域 -->
+  <view class="input-area" wx:if="{{showInput}}">
+    <input 
+      placeholder="输入标题（必填）" 
+      bindinput="onTitleChange"
+      value="{{newTitle}}"
+      class="title-input"
+      maxlength="{{maxTitleLength}}"
+    ></input>
+    <textarea 
+      placeholder="输入内容（可选）" 
+      bindinput="onInputChange"
+      value="{{newContent}}"
+      class="content-input"
+      maxlength="{{maxInputLength}}"
+    ></textarea>
+    <view class="btn-group">
+      <button bindtap="cancelInput" class="cancel-btn">取消</button>
+      <button bindtap="addMemo" class="add-btn">添加</button>
+    </view>
+  </view>
+
+  <!-- 备忘录列表：列表页显示处理后的内容 -->
+  <view class="memo-list">
+    <view class="empty" wx:if="{{memos.length === 0}}">
+      暂无备忘录，添加一条吧~
+    </view>
+
+    <block wx:for="{{memos}}" wx:key="id">
+      <view class="memo-item" bindtap="goToDetail" data-id="{{item.id}}">
+        <button 
+          bindtap="deleteMemo" 
+          data-id="{{item.id}}"
+          class="delete-btn"
+          hover-class="delete-btn_active"
+          catchtap  
+        >
+          ×
+        </button>
+        <view class="memo-title">{{item.title}}</view>
+        <view class="index-divider" ></view>
+        <!-- 列表页显示处理后的内容（带零宽空格，支持换行） -->
+        <view class="memo-content">{{item.processedContent}}</view>
+        <view class="memo-time">{{item.createTime}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+    
