@@ -3,7 +3,7 @@
 Page({
   data: {
     memo: null,
-    currentPreviewIndex: 0 // 存储当前预览的图片索引（用于显示下标）
+    currentPreviewIndex: 0 // 存储当前预览的图片索引
   },
 
   onLoad(options) {
@@ -15,13 +15,13 @@ Page({
     }
   },
 
-  // 加载备忘录详情：兼容旧数据，保留原图路径
+  // 加载备忘录详情
   loadMemoDetail(id) {
     const memos = wx.getStorageSync("memos") || [];
     let memo = memos.find(item => item.id === id);
     
     if (memo) {
-      // 兼容旧数据：补充缺失字段，确保图片路径为原图路径
+      //补充缺失字段，确保图片路径为原图路径
       memo = {
         ...memo,
         title: memo.title || "未命名备忘录",
@@ -35,20 +35,20 @@ Page({
     }
   },
 
-  // 核心功能：图片预览（显示原图+下标+非循环滑动）
+  // 图片预览（显示原图+下标+非循环滑动）
   previewImage(e) {
     const { memo } = this.data;
     const initialIndex = e.currentTarget.dataset.index; // 初始点击的图片索引
     
-    // 1. 存储初始预览索引
+    // 存储初始预览索引
     this.setData({ currentPreviewIndex: initialIndex });
 
-    // 2. 调用微信预览图片API：传入原图路径，确保预览显示原图
+    // 调用微信预览图片API：传入原图路径，确保预览显示原图
     wx.previewImage({
       current: memo.images[initialIndex], // 初始显示的原图路径
-      urls: memo.images, // 所有原图路径列表（未经过压缩，保持原始清晰度）
-      loop: false, // 关闭循环滑动（滑到最后一张无法回到第一张）
-      // 3. 监听预览切换，更新下标
+      urls: memo.images, // 所有原图路径列表
+      loop: false, // 关闭循环滑动
+      // 监听预览切换，更新下标
       onChange: (res) => {
         this.setData({ currentPreviewIndex: res.current });
         // 实时更新下标显示
@@ -58,7 +58,7 @@ Page({
           title: `${currentCount}/${totalCount}`
         });
       },
-      // 4. 初始预览时显示下标
+      // 初始预览时显示下标
       success: () => {
         const totalCount = memo.images.length;
         const currentCount = initialIndex + 1;
@@ -66,7 +66,7 @@ Page({
           title: `${currentCount}/${totalCount}`
         });
       },
-      // 5. 预览关闭时恢复原标题
+      // 预览关闭时恢复原标题
       complete: () => {
         setTimeout(() => {
           wx.setNavigationBarTitle({

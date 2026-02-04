@@ -27,7 +27,6 @@ Page({
     this.setData({ newContent: e.detail.value });
   },
 
-  // 核心修改：替换wx.saveFile为wx.getFileSystemManager().saveFile（解决废弃问题）
   chooseImage() {
     const { selectedImages, maxImageCount } = this.data;
     const remainCount = maxImageCount - selectedImages.length;

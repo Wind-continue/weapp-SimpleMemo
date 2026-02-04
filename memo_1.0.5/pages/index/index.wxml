@@ -75,7 +75,7 @@
           ×
         </button>
         
-        <!-- 正文内容总容器（包含标题、正文、图片、时间戳） -->
+        <!-- 正文内容总容器 -->
         <view class="memo-main-content">
           <!-- 标题 -->
           <view class="memo-title">{{item.title}}</view>
@@ -99,7 +99,7 @@
             </block>
           </view>
           
-          <!-- 时间戳移至正文内容区域内，正文下方且靠左 -->
+          <!-- 时间戳位于正文左下方 -->
           <view class="memo-time">{{item.createTime}}</view>
         </view>
       </view>
